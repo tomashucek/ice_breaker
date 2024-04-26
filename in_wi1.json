@@ -1,0 +1,108 @@
+[
+  {
+    "ID": 36748,
+    "Title": "Network Information Security",
+    "State": "Active",
+    "Assigned to": "Kl\u00e1ra \u0160krabalov\u00e1",
+    "Chagned date": "2024-04-25T09:21:10.57Z",
+    "State chagned": "2023-08-23T19:38:18.47Z",
+    "Area path": "00-DO-PMO\\PgM\\NIS",
+    "Sprint": "00-DO-PMO",
+    "Start date": "2022-10-31T23:00:00Z",
+    "Target date": "2025-11-30T23:00:00Z",
+    "Description": "<div>The aim of the project is: </div><div><ul><li>to achieve compliance with Czech legislation (Act No. 181/2014 Cyber Security) and Directive of the European Parliament and Council (EU) - NIS 2 </li><li><b>and fulfillment of security obligations towards our customers with the implementations of ISO/EIC 27001 Information security management systems, ISO/EIC 27017 Vulnerability Management ISO, ISO/EIC 27018 Security techniques </b> </li> </ul><div>Sponsor: V\u00e1clav Chaloupka </div><div>Vendor: Anect </div><div><br> </div><div>Internal Audit: cca June 2024 </div><div>Phase 1, ISO Certification, estimated delivery date: November 2024&nbsp;<b>update: only HQ will undergo the ISO 2700x certification audit </b>(approved by ETM) </div><div>Phase 2, NIS2 implementation, estimated delivery date: 2025 </div><div><br> </div><div><br> </div><div><br> </div> </div>",
+    "Tags": null,
+    "Comments": {
+      "comments": [
+        {
+          "url": "https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/36748/comments/8385320",
+          "created_by": {
+            "_links": {},
+            "descriptor": "aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "display_name": "Tom\u00e1\u0161 Hu\u010dek",
+            "url": "https://spsprodweu4.vssps.visualstudio.com/A890d786c-9f4b-4702-89b9-28de48e58b24/_apis/Identities/818baaaf-4594-6bb2-a62a-780432486beb",
+            "id": "818baaaf-4594-6bb2-a62a-780432486beb",
+            "image_url": "https://dev.azure.com/comap/_apis/GraphProfile/MemberAvatars/aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "unique_name": "tomas.hucek@comap-control.com"
+          },
+          "created_date": "2024-04-25T09:19:20.830Z",
+          "id": 8385320,
+          "mentions": [],
+          "modified_by": {
+            "_links": {},
+            "descriptor": "aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "display_name": "Tom\u00e1\u0161 Hu\u010dek",
+            "url": "https://spsprodweu4.vssps.visualstudio.com/A890d786c-9f4b-4702-89b9-28de48e58b24/_apis/Identities/818baaaf-4594-6bb2-a62a-780432486beb",
+            "id": "818baaaf-4594-6bb2-a62a-780432486beb",
+            "image_url": "https://dev.azure.com/comap/_apis/GraphProfile/MemberAvatars/aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "unique_name": "tomas.hucek@comap-control.com"
+          },
+          "modified_date": "2024-04-25T09:20:45.803Z",
+          "text": "<div>Lucie (new consultant) will help Jan Gross to write guidelines and working instructions.&nbsp;</div><div>Meeting Adela and Lucie on organization settings.</div><div>Next week's meeting on supplier management.</div><div>There is a risk that the internal audit will move from June to October.</div>",
+          "version": 2,
+          "work_item_id": 36748
+        },
+        {
+          "url": "https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/36748/comments/8201302",
+          "created_by": {
+            "_links": {},
+            "descriptor": "aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "display_name": "Tom\u00e1\u0161 Hu\u010dek",
+            "url": "https://spsprodweu4.vssps.visualstudio.com/A890d786c-9f4b-4702-89b9-28de48e58b24/_apis/Identities/818baaaf-4594-6bb2-a62a-780432486beb",
+            "id": "818baaaf-4594-6bb2-a62a-780432486beb",
+            "image_url": "https://dev.azure.com/comap/_apis/GraphProfile/MemberAvatars/aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "unique_name": "tomas.hucek@comap-control.com"
+          },
+          "created_date": "2024-03-07T12:24:35.380Z",
+          "id": 8201302,
+          "mentions": [],
+          "modified_by": {
+            "_links": {},
+            "descriptor": "aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "display_name": "Tom\u00e1\u0161 Hu\u010dek",
+            "url": "https://spsprodweu4.vssps.visualstudio.com/A890d786c-9f4b-4702-89b9-28de48e58b24/_apis/Identities/818baaaf-4594-6bb2-a62a-780432486beb",
+            "id": "818baaaf-4594-6bb2-a62a-780432486beb",
+            "image_url": "https://dev.azure.com/comap/_apis/GraphProfile/MemberAvatars/aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "unique_name": "tomas.hucek@comap-control.com"
+          },
+          "modified_date": "2024-03-07T12:24:35.380Z",
+          "text": "<div>The management decided that the security project (<a href=\"https://dev.azure.com/comap/00-DO-PMO/_workitems/edit/39339\" tabindex=0 style=\"box-sizing:border-box;border-radius:2px;cursor:pointer;outline:transparent;text-decoration:underline !important;transition:color 80ms cubic-bezier(0.165, 0.84, 0.44, 1) 0s, background 80ms linear 0s;background-color:rgb(26, 32, 41);\">Epic 39339</a><span style=\"background-color:rgb(26, 32, 41);display:inline !important;\">: Restriction of user rights on workstations)&nbsp;</span>takes priority, so the team of Honza Varshavsky has to stop work on NIS. This will slip our timeline by about a month. Kl\u00e1rka will check against the fahrplan.<br></div>",
+          "version": 1,
+          "work_item_id": 36748
+        },
+        {
+          "url": "https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/36748/comments/8056256",
+          "created_by": {
+            "_links": {},
+            "descriptor": "aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "display_name": "Tom\u00e1\u0161 Hu\u010dek",
+            "url": "https://spsprodweu4.vssps.visualstudio.com/A890d786c-9f4b-4702-89b9-28de48e58b24/_apis/Identities/818baaaf-4594-6bb2-a62a-780432486beb",
+            "id": "818baaaf-4594-6bb2-a62a-780432486beb",
+            "image_url": "https://dev.azure.com/comap/_apis/GraphProfile/MemberAvatars/aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "unique_name": "tomas.hucek@comap-control.com"
+          },
+          "created_date": "2024-02-08T10:02:45.057Z",
+          "id": 8056256,
+          "mentions": [],
+          "modified_by": {
+            "_links": {},
+            "descriptor": "aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "display_name": "Tom\u00e1\u0161 Hu\u010dek",
+            "url": "https://spsprodweu4.vssps.visualstudio.com/A890d786c-9f4b-4702-89b9-28de48e58b24/_apis/Identities/818baaaf-4594-6bb2-a62a-780432486beb",
+            "id": "818baaaf-4594-6bb2-a62a-780432486beb",
+            "image_url": "https://dev.azure.com/comap/_apis/GraphProfile/MemberAvatars/aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "unique_name": "tomas.hucek@comap-control.com"
+          },
+          "modified_date": "2024-02-08T10:02:45.057Z",
+          "text": "<div>to be updated on Monday</div>",
+          "version": 1,
+          "work_item_id": 36748
+        }
+      ],
+      "continuation_token": "2023-10-11T09:44:40.8800000Z",
+      "count": 3,
+      "next_page": "https://dev.azure.com:443/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/36748/comments?continuationToken=2023-10-11T09%3A44%3A40.8800000Z&%24top=3",
+      "total_count": 4
+    }
+  }
+]

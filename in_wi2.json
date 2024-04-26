@@ -1,0 +1,50 @@
+[
+  {
+    "ID": 38064,
+    "Title": "SPD:E: Handover of SPD to RnD",
+    "State": "Active",
+    "Assigned to": "Tom\u00e1\u0161 Hu\u010dek",
+    "Chagned date": "2024-04-24T19:12:58.02Z",
+    "State chagned": "2023-11-15T07:16:31.383Z",
+    "Area path": "00-DO-PMO\\PgM\\SPDtoRnD",
+    "Sprint": "00-DO-PMO\\2024\\2204-1705 (R33)\\2204-0505 \ud83d\udc2c",
+    "Start date": "2023-10-31T23:00:00Z",
+    "Target date": null,
+    "Description": "<div><a href=\"onenote:https://comap.sharepoint.com/teams/ITPrivateTeam-DOPMO/Shared%20Documents/DO%20PMO/DO%20Program%20management/Epic%2038064%20Handover%20of%20SPD%20to%20RnD.one#Project%20Overview&amp;section-id={5D1A1CED-AAA8-45C8-8A9E-0E2DE7AB39FA}&amp;page-id={92220050-90DF-42E3-B9C6-A528410FD81F}&amp;end\">Project Overview</a>&nbsp; (<a href=\"https://comap.sharepoint.com/teams/ITPrivateTeam-DOPMO/_layouts/OneNote.aspx?id=%2fteams%2fITPrivateTeam-DOPMO%2fShared%20Documents%2fDO%20PMO%2fDO%20Program%20management&amp;wd=target%28Epic%2038064%20Handover%20of%20SPD%20to%20RnD.one%7c5D1A1CED-AAA8-45C8-8A9E-0E2DE7AB39FA%2fProject%20Overview%7c92220050-90DF-42E3-B9C6-A528410FD81F%2f%29\">Web view</a>)<br> </div><div> </div><div> </div><div> </div><div> </div><div><br> </div><div>Confluence: </div><div><a href=\"https://confluence.comap-control.com/pages/viewpage.action?pageId=581731105\">https://confluence.comap-control.com/pages/viewpage.action?pageId=581731105</a><br> </div><div><br> </div><div><p style=\"margin:0in;color:#003366;\"><span style=\"font-weight:bold;\" lang=en-US>Project Name: </span><span style=\"font-weight:bold;\" lang=cs>Epic 38064: Handover of SPD to RnD</span> </p><p style=\"margin:0in;color:#003366;\">&nbsp; </p><p style=\"margin:0in;color:#003366;\" lang=en-IN><span style=\"font-weight:bold;\">Description</span><span style=\"font-style:italic;\"> (Describe the project in non-technical terms.)</span> </p><p style=\"margin:0in;\" lang=en-NZ>SPD\nproduct was developed in Clojure and put into production environment where it\nis used by several customers. In order to further manage and scale the SPD\nneeds to be embedded in a standard framework of organizational processes. </p><p style=\"margin:0in;color:#003366;\">&nbsp; </p><p style=\"margin:0in;color:#003366;\"><span style=\"font-weight:bold;\">Project Goals</span> </p><ul style=\"unicode-bidi:embed;margin-top:0in;margin-bottom:0in;\">\n <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\"><span>Ultimate goal of project </span> </li>\n <ul style=\"unicode-bidi:embed;margin-top:0in;margin-bottom:0in;\">\n  <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\" lang=en-ID><span>Handover of development of SPD to RnD</span> </li>\n  <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\" lang=en-ID><span>Rewrite\n      existing application or its suitable parts to Python</span> </li>\n  <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\"><span lang=en-MY>Knowledge</span><span lang=cs> transfer</span> </li>\n </ul>\n <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\" lang=en-JM><span>Relationship\n     to other projects</span> </li>\n <ul style=\"unicode-bidi:embed;margin-top:0in;margin-bottom:0in;\">\n  <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\" lang=en-JM><span>SPD belongs\n      to family of ComAp Cloud applications</span> </li>\n  <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\"><span lang=en-JM>Strong relation\n      to WebSupervis</span><span lang=cs>o</span><span lang=en-JM>r (utilises API &amp; Accounts)</span> </li>\n </ul>\n <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\" lang=en-ID><span>High-level\n     timing goals</span> </li>\n <ul style=\"unicode-bidi:embed;margin-top:0in;margin-bottom:0in;\">\n  <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\" lang=en-ID><span>Rewrite of Eval Rule must be finished by the end of 2023</span> </li>\n  <li style=\"margin-top:0;margin-bottom:0;vertical-align:middle;color:#003366;\" lang=en-ID><span>Other parts\n      should be delivered in Q1/2024</span> </li>\n </ul> </ul><br> </div><div><img src=\"https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/attachments/7263787c-6fb1-4143-b11e-cd7783a1a47a?fileName=image.png\" alt=Image><br> </div><div><br> </div><div><br> </div>",
+    "Tags": "#bl; #SPD_v1.0; #SPD_v2.0",
+    "Comments": {
+      "comments": [
+        {
+          "url": "https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/38064/comments/8025136",
+          "created_by": {
+            "_links": {},
+            "descriptor": "aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "display_name": "Tom\u00e1\u0161 Hu\u010dek",
+            "url": "https://spsprodweu4.vssps.visualstudio.com/A890d786c-9f4b-4702-89b9-28de48e58b24/_apis/Identities/818baaaf-4594-6bb2-a62a-780432486beb",
+            "id": "818baaaf-4594-6bb2-a62a-780432486beb",
+            "image_url": "https://dev.azure.com/comap/_apis/GraphProfile/MemberAvatars/aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "unique_name": "tomas.hucek@comap-control.com"
+          },
+          "created_date": "2024-02-06T08:41:56.643Z",
+          "id": 8025136,
+          "mentions": [],
+          "modified_by": {
+            "_links": {},
+            "descriptor": "aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "display_name": "Tom\u00e1\u0161 Hu\u010dek",
+            "url": "https://spsprodweu4.vssps.visualstudio.com/A890d786c-9f4b-4702-89b9-28de48e58b24/_apis/Identities/818baaaf-4594-6bb2-a62a-780432486beb",
+            "id": "818baaaf-4594-6bb2-a62a-780432486beb",
+            "image_url": "https://dev.azure.com/comap/_apis/GraphProfile/MemberAvatars/aad.ODE4YmFhYWYtNDU5NC03YmIyLWE2MmEtNzgwNDMyNDg2YmVi",
+            "unique_name": "tomas.hucek@comap-control.com"
+          },
+          "modified_date": "2024-02-06T08:41:56.643Z",
+          "text": "<div>work in progress ETA of&nbsp;GUI end of February/2024;&nbsp;ETA&nbsp;of&nbsp;CO2&nbsp;report end of&nbsp;Q1<br></div>",
+          "version": 1,
+          "work_item_id": 38064
+        }
+      ],
+      "count": 1,
+      "total_count": 1
+    }
+  }
+]

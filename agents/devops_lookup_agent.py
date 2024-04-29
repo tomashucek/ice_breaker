@@ -28,17 +28,18 @@ def lookup(work_item_title: str) -> str:
         input_variables=["wi_name"]
     )
 
+    react_prompt = hub.pull("hwchase17/react")
+    pprint(react_prompt)
+    
     tools_for_agent= [
         Tool(
-            name = "Crawl Azure DevOps Boards work item",
+            name = "Search for Azure DevOps Boards work items",
             func="?",
-            description = "useful when you need to get azure devops boards work item url",
+            description = "useful when you need to get the ID of an azure devops work item based on its approximate name.",
         )
     ]
 
-    react_prompt = hub.pull("hwchase17/react")
 
-    pprint(react_prompt)
 
     agent = create_react_agent(llm=llm, tools=tools_for_agent, prompt=react_prompt)
     agent_executor = AgentExecutor(agent=agent, tools=tools_for_agent, verbose=True)

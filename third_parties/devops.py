@@ -8,32 +8,6 @@ from dotenv import load_dotenv
 from azure.devops.connection import Connection
 from msrest.authentication import BasicAuthentication
 
-class App():
-    
-    def run(self):
-    # hlavní logika aplikace
-        print("Aplikace běží.")
-        #logging.info("App running...")
-    
-        ui = UserIntreface()
-        period = ui.get_period()
-    
-        print(f"\n>>> Processing of data on work items that have been changed between {period[0].date()} to {period[1].date()}\n")
-    
-        report = DevOpsDataExtractor(*period)
-        report_work_items = report.get_items_list()
-        #pprint(report_work_items)
-        
-        try:
-            with open("out.txt", "w") as f:
-                f.write(f'"role": "system", "content": {system_pgm}\n"role": "user", "content": {user_pgm}\nData period: from "{period[0].date()}" to {period[1].date()}\n')
-                json.dump(report_work_items, f, indent=2)
-        except Exception as e:
-            print(f"Problém se zápisem do souboru {e}")
-                
-        print(f"\n>>> Loaded data about {len(report_work_items)} work items")
-
-        return None
 
 class DevOpsDataExtractor:
     """ object class that can connect to Azure DevOps and retrieve data about Boards work items"""
@@ -54,7 +28,7 @@ class DevOpsDataExtractor:
                     WHERE
                         [System.TeamProject] = '{project_name}'
                         AND [System.WorkItemType] = '{item_types}'
-                        AND [System.AreaPath] UNDER '00-DO-PMO\PgM'"""
+                        AND [System.AreaPath] UNDER '00-DO-PMO\\PgM'"""
         
         self._api_init()
 
@@ -128,34 +102,6 @@ class DevOpsDataExtractor:
         
         return wi_data
   
-  
-
-class UserIntreface():
-    
-    def __init__(self) -> None:
-        pass
-
-    def __str__(self) -> str:
-        pass
-
-    def get_period(self) -> list:
-        while True:
-            try:
-                s_date = input("Enter start date: ")
-                e_date = input("Enter end date: ")
-                
-                if s_date == "":
-                    s_date = "01-01-2024"
-                if e_date == "":
-                    e_date = str(datetime.now().strftime("%d-%m-%Y"))
-                
-                valid_s_date = datetime.strptime(s_date, "%d-%m-%Y")
-                valid_e_date = datetime.strptime(e_date, "%d-%m-%Y")
-                return [valid_s_date, valid_e_date]
-                    
-            except ValueError as e:
-                print(f"Value error {e}")
-
 
 if __name__ == "__main__":
     
@@ -164,8 +110,7 @@ if __name__ == "__main__":
                 filename='app.log', 
                 filemode='w', 
                 format='%(asctime)s - %(levelname)s - %(message)s')
-    
-    app = App()
-    app.run()
+   
+
     
 

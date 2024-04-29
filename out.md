@@ -77,3 +77,44 @@ The work item is titled 'ERP -> N2F integration flow (Financial Transactions)' w
    - Tomáš Huček
    - Tomáš Bílek
 
+##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+
+1. Item Summary:
+   Title: ERP -> N2F integration flow (Financial Transactions)
+   ID: 37127
+   State: Resolved
+   Assigned to: Tomáš Huček
+   Area Path: 00-DO-PMO\Application Services\Integration
+   Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
+   Start Date: 2023-12-31T23:00:00Z
+   Changed Date: 2024-04-29T08:52:50.81Z
+
+2. Possible Risks:
+   - Integration running periodically may cause delays or errors if not properly scheduled or monitored.
+   - Data transfer from ERP to N2F in CSV format may lead to data loss or corruption if not handled correctly.
+   - Fetching data from SFTP periodically may result in missing or outdated information if the process fails.
+   - Storing files in Azure Blob Storage may pose security risks if access controls are not properly configured.
+
+3. Names Involved:
+   - Tomáš Huček
+   - Jana Hlavínová
+   - Radka Kroupová
+
+(Note: Names starting with "Ext -" were not included as they are likely external entities and not directly involved in the work item)
+
+##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+
+1. Item Summary:
+The work item with ID 37127 titled 'ERP -> N2F integration flow (Financial Transactions)' has been resolved and was assigned to Tomáš Huček. The integration flow involves transferring card transactions into Expense Management software (N2F) using a CSV file provided by the vendor. The integration process includes periodic data transfers to Azure Blob Storage and fetching data from SFTP by N2F. The CSV export format and mapping details are specified for the integration. Comments on the work item discuss release to PROD, integration restrictions, and transaction validations.
+
+2. Possible Risks:
+- Delay in releasing to PROD may impact the integration timeline.
+- Integration restrictions based on transaction dates may cause data inconsistencies.
+- Incorrect card number creation and transaction validations may lead to data errors.
+- Changes in Azure Blob Storage configuration or SFTP access may disrupt the integration process.
+
+3. Names Involved:
+- Tomáš Huček
+- Jana Hlavínová
+- Radka Kroupová
+

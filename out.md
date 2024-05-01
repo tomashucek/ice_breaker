@@ -118,3 +118,57 @@ The work item with ID 37127 titled 'ERP -> N2F integration flow (Financial Trans
 - Jana Hlavínová
 - Radka Kroupová
 
+##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+
+1. Item Summary:
+   Title: ERP -> N2F integration flow (Financial Transactions)
+   ID: 37127
+   State: Resolved
+   Assigned to: Tomáš Huček
+   Changed Date: 2024-04-30T08:59:48.853Z
+   Area Path: 00-DO-PMO\Application Services\Integration
+   Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
+   Start Date: 2023-12-31T23:00:00Z
+   Description: This user story discusses the integration flow of financial transactions from ERP to N2F, including the process and requirements for CSV file transfer.
+
+2. Possible Risks:
+   - Delay in integration schedule due to technical issues or dependencies.
+   - Data security risks during the transfer of financial transactions.
+   - Compatibility issues between ERP and N2F systems.
+   - Errors in CSV file format leading to incorrect data transfer.
+   - Lack of proper testing leading to integration failures.
+
+3. Names Involved:
+   - Tomáš Huček
+   - Jana Hlavínová
+   - Radka Kroupová
+
+(Note: Only human names are included, excluding any names starting with "Ext -")
+
+##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+
+1. Item Summary:
+   Title: ERP -> N2F integration flow (Financial Transactions)
+   ID: 37127
+   State: Resolved
+   Assigned to: Tomáš Huček
+   Changed Date: 2024-04-30T08:59:48.853Z
+   Area Path: 00-DO-PMO\Application Services\Integration
+   Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
+   Start Date: 2023-12-31T23:00:00Z
+   Description: This user story discusses the integration flow of financial transactions from ERP to N2F. It involves transferring vendor transactions to Expense Management software (N2F) using CSV files and Azure Blob Storage. The integration process includes periodic data transfers and specific CSV export formats.
+
+2. Possible Risks:
+   - Delay in the integration process due to technical issues or data inconsistencies.
+   - Data security risks during the transfer of financial information.
+   - Compatibility issues between ERP and N2F systems.
+   - Errors in CSV file formatting leading to incorrect data transfer.
+   - Dependency on external vendors for transaction data availability.
+
+3. Names Involved:
+   - Tomáš Huček
+   - Jana Hlavínová
+   - Radka Kroupová
+
+(Note: Only human names are included, excluding any names starting with "Ext -")
+

@@ -12,24 +12,27 @@ from msrest.authentication import BasicAuthentication
 class DevOpsDataExtractor:
     """ object class that can connect to Azure DevOps and retrieve data about Boards work items"""
 
-    def __init__(self, project_name = "00-DO-PMO", item_types = "Epic") -> None:
+    def __init__(self, project_name = "00-DO-PMO", item_types = "Epic", title = "") -> None:
         
         load_dotenv(override=True)
         self.organization_url = os.getenv("organization_url")
         self.personal_access_token = os.getenv("personal_access_token")
-        self.project_name = os.getenv("project_name")
+        self.project_name = project_name
+        self.item_types = item_types
         self.wit_client = ""
-        self.work_items_data = {}
+        self.work_item_title = title
+        self.work_items_ids = []
         
         self.wiql = f"""
                     SELECT
-                        [System.Id]
+                        [System.Id],
+                        [System.WorkItemType],
+                        [System.State],
+                        [System.Tags]
                     FROM workitems
                     WHERE
-                        [System.TeamProject] = '{project_name}'
-                        AND [System.WorkItemType] = '{item_types}'
-                        AND [System.AreaPath] UNDER '00-DO-PMO\\PgM'"""
-        
+                        [System.TeamProject] = '{self.project_name}'
+                        AND [System.Title] CONTAINS '{self.work_item_title}'"""
         self._api_init()
 
     def _api_init(self) -> None:
@@ -42,23 +45,24 @@ class DevOpsDataExtractor:
         self.wit_client = connection.clients.get_work_item_tracking_client()
 
         return None
-    
+
+
     def get_items_list(self) -> list[str]:
-        """List work items of interest for reporting and read theirs data"""
+        """Looks for work items whose Title in DevOps contains self.title: str and returns list of found items"""
         
-        work_items_data = []
+        work_items_ids = []
         
         wiql = {"query": self.wiql}
         wiql_results: list[object] = self.wit_client.query_by_wiql(wiql).work_items
         logging.debug(f">>> ➡️ Got {len(wiql_results)} objects as wiql results.....")
         #pprint(wiql_results[0].as_dict())
 
-        for result in wiql_results:
+        for i, result in enumerate(wiql_results):
             logging.debug(f">>> Processing: {result.id}")
-            wi = self.fetch_work_item_data(result.id)
-            work_items_data.append(wi)
+            print(result.url)
+            work_items_ids.append(wiql_results[i].url)
         
-        return work_items_data
+        return work_items_ids
         
     def fetch_work_item_data(self, work_item_id) -> json:
         """Fetches work item's data and returns dictionary of relevant atributes including all comments"""

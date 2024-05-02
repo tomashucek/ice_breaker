@@ -21,7 +21,7 @@ def lookup(work_item_title: str) -> str:
         model_name="gpt-3.5-turbo",
     )
 
-    template = """given the {wi_name} part of the work item name, I want you to get me the url of the devops board work item. Your answer should only contain the url"""
+    template = """given the approximate name {wi_name} of the work item name, I want you to get me the url of the devops board work item. Be aware, that incomplete name may result in multiple matches, so you may need to pick the best fit. Your answer should only contain the url"""
 
     prompt_template = PromptTemplate(
         template=template,
@@ -35,7 +35,7 @@ def lookup(work_item_title: str) -> str:
         Tool(
             name = "Search for Azure DevOps Boards work items",
             func=look_for_work_items,
-            description = "useful when you need to get the ID of an azure devops work item based on its approximate name.",
+            description = "useful when you need to get info about work items from azure devops work based on its approximate name.",
         )
     ]
 
@@ -46,12 +46,12 @@ def lookup(work_item_title: str) -> str:
         input={"input": prompt_template.format_prompt(wi_name = work_item_title)}
     )
 
-    print(result["output"])
+    #print(result["output"])
 
     return result["output"]
 
 
 if __name__ == "__main__":
     print("Starting program...")
-    devops_wi_url = lookup(work_item_title="Terra")
-    print(devops_wi_url)
+    devops_wi_url = lookup(work_item_title="CCI")
+    #print(devops_wi_url)

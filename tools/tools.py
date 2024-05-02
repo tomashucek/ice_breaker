@@ -4,7 +4,7 @@
 from third_parties import devops
 
 
-def look_for_work_items(title:str = "CCI"):
+def look_for_work_items(title:str = "nothing"):
     """Function looks for title of the work item in devops and returns its ID"""
 
     devops_searcher = devops.DevOpsDataExtractor(title=title)

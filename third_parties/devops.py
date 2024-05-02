@@ -7,12 +7,12 @@ from datetime import datetime
 from dotenv import load_dotenv
 from azure.devops.connection import Connection
 from msrest.authentication import BasicAuthentication
-
+from pprint import pprint
 
 class DevOpsDataExtractor:
     """ object class that can connect to Azure DevOps and retrieve data about Boards work items"""
 
-    def __init__(self, project_name = "00-DO-PMO", item_types = "Epic", title = "") -> None:
+    def __init__(self, project_name = "00-DO-PMO", item_types = "Any", title = "") -> None:
         
         load_dotenv(override=True)
         self.organization_url = os.getenv("organization_url")
@@ -32,7 +32,8 @@ class DevOpsDataExtractor:
                     FROM workitems
                     WHERE
                         [System.TeamProject] = '{self.project_name}'
-                        AND [System.Title] CONTAINS '{self.work_item_title}'"""
+                        AND [System.Title] CONTAINS '{self.work_item_title}'
+                        AND [System.WorkItemType] <> '{self.item_types}'"""
         self._api_init()
 
     def _api_init(self) -> None:
@@ -59,8 +60,8 @@ class DevOpsDataExtractor:
 
         for i, result in enumerate(wiql_results):
             logging.debug(f">>> Processing: {result.id}")
-            print(result.url)
-            work_items_ids.append(wiql_results[i].url)
+            data = self.fetch_work_item_data(result.id)
+            work_items_ids.append(data)
         
         return work_items_ids
         
@@ -95,7 +96,9 @@ class DevOpsDataExtractor:
             "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
             "Description":  work_item.get("fields", {}).get("System.Description", None),
             "Tags":         work_item.get("fields", {}).get("System.Tags", None),
-            "Comments":     comments
+            "url":          work_item.get("_links", {}).get("html", {}).get("href", None) #need to get this working
+
+            #"Comments":     comments
             }
                 
         #pprint(wi_data, indent=4)

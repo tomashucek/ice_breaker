@@ -9,7 +9,7 @@ def look_for_work_items(title:str = "nothing"):
 
     devops_searcher = devops.DevOpsDataExtractor(title=title)
     list_of_found_items = devops_searcher.get_items_list()
-    print(list_of_found_items)
+    #print(list_of_found_items)
     return list_of_found_items
 
 if __name__ == "__main__":

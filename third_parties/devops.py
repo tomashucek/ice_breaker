@@ -48,24 +48,28 @@ class DevOpsDataExtractor:
         return None
 
 
-    def get_items_list(self) -> list[str]:
+    def get_items_list(self) -> list[dict]:
         """Looks for work items whose Title in DevOps contains self.title: str and returns list of found items"""
         
-        work_items_ids = []
+        work_items_data = []
         
         wiql = {"query": self.wiql}
         wiql_results: list[object] = self.wit_client.query_by_wiql(wiql).work_items
         logging.debug(f">>> ➡️ Got {len(wiql_results)} objects as wiql results.....")
         #pprint(wiql_results[0].as_dict())
 
-        for i, result in enumerate(wiql_results):
-            logging.debug(f">>> Processing: {result.id}")
-            data = self.fetch_work_item_data(result.id)
-            work_items_ids.append(data)
+        if len(wiql_results) < 11: #pokud načítám už 10 wi, tak je můj search string špatně
+
+            for result in wiql_results:
+                logging.debug(f">>> Processing: {result.id}")
+                data = self.fetch_work_item_data(result.id, verbose=False)
+                work_items_data.append(data)
+            
+            return work_items_data
+        else:
+            return None
         
-        return work_items_ids
-        
-    def fetch_work_item_data(self, work_item_id) -> json:
+    def fetch_work_item_data(self, work_item_id, verbose=True) -> json:
         """Fetches work item's data and returns dictionary of relevant atributes including all comments"""
         
         wi_data = {}
@@ -83,29 +87,43 @@ class DevOpsDataExtractor:
                 
         # zkusit vyčítat i starší revize
         
-        wi_data = {
-            "ID":           work_item.get("id", None),
-            "Title":        work_item.get("fields", {}).get("System.Title", None),
-            "State":        work_item.get("fields", {}).get("System.State", None),
-            "Assigned to":  work_item.get("fields", {}).get("System.AssignedTo", {}).get("displayName", None),
-            "Chagned date": work_item.get("fields", {}).get("System.ChangedDate", None),
-            "State chagned":work_item.get("fields", {}).get("Microsoft.VSTS.Common.StateChangeDate", None),
-            "Area path":    work_item.get("fields", {}).get("System.AreaPath", None),
-            "Sprint":       work_item.get("fields", {}).get("System.IterationPath", None),
-            "Start date":   work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.StartDate", None),
-            "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
-            "Description":  work_item.get("fields", {}).get("System.Description", None),
-            "Tags":         work_item.get("fields", {}).get("System.Tags", None),
-            "url":          work_item.get("_links", {}).get("html", {}).get("href", None) #need to get this working
+        if verbose:
+            wi_data = {
+                "ID":           work_item.get("id", None),
+                "Title":        work_item.get("fields", {}).get("System.Title", None),
+                "State":        work_item.get("fields", {}).get("System.State", None),
+                "Assigned to":  work_item.get("fields", {}).get("System.AssignedTo", {}).get("displayName", None),
+                "Chagned date": work_item.get("fields", {}).get("System.ChangedDate", None),
+                "State chagned":work_item.get("fields", {}).get("Microsoft.VSTS.Common.StateChangeDate", None),
+                "Area path":    work_item.get("fields", {}).get("System.AreaPath", None),
+                "Sprint":       work_item.get("fields", {}).get("System.IterationPath", None),
+                "Start date":   work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.StartDate", None),
+                "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
+                "Description":  work_item.get("fields", {}).get("System.Description", None),
+                "Tags":         work_item.get("fields", {}).get("System.Tags", None),
+                "url":          work_item.get("url", {}),
+                "Comments":     comments
+                }
+        else:
+            wi_data = {
+                "ID":           work_item.get("id", None),
+                "Title":        work_item.get("fields", {}).get("System.Title", None),
+                "State":        work_item.get("fields", {}).get("System.State", None),
+                "Assigned to":  work_item.get("fields", {}).get("System.AssignedTo", {}).get("displayName", None),
+                "Chagned date": work_item.get("fields", {}).get("System.ChangedDate", None),
+                "State chagned":work_item.get("fields", {}).get("Microsoft.VSTS.Common.StateChangeDate", None),
+                "Area path":    work_item.get("fields", {}).get("System.AreaPath", None),
+                "Sprint":       work_item.get("fields", {}).get("System.IterationPath", None),
+                "Start date":   work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.StartDate", None),
+                "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
+                "Tags":         work_item.get("fields", {}).get("System.Tags", None),
+                "url":          work_item.get("url", {})
+                }
 
-            #"Comments":     comments
-            }
-                
         #pprint(wi_data, indent=4)
         
         #logging.info(f">>> ➡️ Logging wi_data: {wi_data}")
         print(f">>> ➡️  Logging wi_data on work_item {wi_data["ID"]}")
-        
         
         return wi_data
   
@@ -115,7 +133,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG,
                 encoding="utf-8",
                 filename='app.log', 
-                filemode='w', 
+                filemode='a', 
                 format='%(asctime)s - %(levelname)s - %(message)s')
    
 

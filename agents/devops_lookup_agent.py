@@ -1,3 +1,4 @@
+# úkolem agenta je najít na základě neúplného vstupního stringu nebo slovního popisu kokrétní work item v Azure Devops
 
 import os
 from pprint import pprint
@@ -21,7 +22,11 @@ def lookup(work_item_title: str) -> str:
         model_name="gpt-3.5-turbo",
     )
 
-    template = """given the approximate name {wi_name} of the work item name, I want you to get me the url of the devops board work item. Be aware, that incomplete name may result in multiple matches, so you may need to pick the best fit. Your answer should only contain the url"""
+    template = """
+            Input: the description or approximate name {wi_name} of the work item name; try so improve input string before using your tool to increase the chance of success
+            Task: I want you to get me the id and url of the devops board work item
+            Context: your search tool is based on Wiql query "contains input" so may result in multiple or zero matches. You need to retry search with updated input string. Your search tool returs json data with url in it.
+            Your final answer schema -> list[ID, url]"""
 
     prompt_template = PromptTemplate(
         template=template,
@@ -53,5 +58,5 @@ def lookup(work_item_title: str) -> str:
 
 if __name__ == "__main__":
     print("Starting program...")
-    devops_wi_url = lookup(work_item_title="CCI")
-    #print(devops_wi_url)
+    devops_wi_url = lookup(work_item_title="cci")
+    print(devops_wi_url)

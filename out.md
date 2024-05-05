@@ -1,174 +1,475 @@
-##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
-1. Possible risks:
-   - Integration running periodically may cause delays or errors in data transfer.
-   - Incorrect mapping of data fields may lead to data corruption or loss.
-   - Dependency on external systems like Azure Blob Storage and N2F may result in integration failures if those systems are not available.
-   - Changes in the source data format or API may require frequent updates to the integration flow.
-   - Security risks related to SFTP access and data transfer.
-
-2. Names involved:
-   - Jana Hlavínová
-   - Radka (mentioned in comments)
-   - Jan Varšavský
-
-##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
-1. Item Summary:
-   Title: ERP -> N2F integration flow (Financial Transactions)
-   ID: 37127
-   State: Resolved
-   Assigned to: Jana Hlavínová
-   Area Path: 00-DO-PMO\Application Services\Integration
-   Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
-   Start Date: 2023-12-31
-   Changed Date: 2024-04-26T08:58:29.07Z
-   Description: This user story discusses the integration flow of transferring card transactions into Expense Management software (N2F) using CSV files provided by the vendor. The integration involves periodic data transfer to Azure Blob Storage and fetching data by N2F from SFTP. The CSV export format and Blob storage details are specified for the integration.
-
-2. Possible Risks:
-   - Incorrect mapping of data fields in the CSV export format.
-   - Issues with the periodic integration process causing delays in data transfer.
-   - Security risks related to SFTP access and data storage in Azure Blob Storage.
-   - Compatibility issues with the N2F system during data fetching.
-
-3. Names Involved:
-   - Jana Hlavínová
-   - Radka (mentioned in comments)
-   - Jan Varšavský
-
-##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+##Result text for item 37941:ESG Project: 
 
 1. Item Summary:
-The work item is titled 'ERP -> N2F integration flow (Financial Transactions)' with ID 37127. It is in the 'Resolved' state and was assigned to Jana Hlavínová. The integration flow involves transferring vendor transactions from ERP to N2F using CSV files and Azure Blob Storage. The integration runs periodically and the CSV file format and storage details are specified. There are comments from team members regarding the successful integration of transactions.
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 2024-03-21T09:16:45.147Z
+   - State changed: 2024-03-08T09:20:04.993Z
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 2024-02-25T23:00:00Z
+   - Target date: 2024-12-30T23:00:00Z
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
 
 2. Possible Risks:
-- Incorrect mapping of data fields in the CSV file could lead to data corruption or loss during transfer.
-- Failure to adhere to the specified CSV file format requirements may result in errors during processing by N2F.
-- Issues with Azure Blob Storage connectivity or permissions could prevent successful file delivery.
-- Delays in fetching data from SFTP by N2F could impact the timeliness of transaction processing.
+   - Delay in data integration implementation
+   - Budget constraints for maintenance or individual business cases
+   - Changes in project scope or requirements
+   - Resource availability for the project
 
 3. Names Involved:
-- Jana Hlavínová
-- Radka (mentioned in comments)
-- Jan Varšavský
-
-##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
-
-1. Item Summary:
-   Title: ERP -> N2F integration flow (Financial Transactions)
-   ID: 37127
-   State: Resolved
-   Assigned to: Jana Hlavínová
-   Changed Date: 2024-04-26T08:58:29.07Z
-   Area Path: 00-DO-PMO\Application Services\Integration
-   Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
-   Start Date: 2023-12-31T23:00:00Z
-   Description: This user story discusses the integration flow of transferring card transactions into Expense Management software (N2F) using CSV files provided by the vendor. The integration process involves transferring data periodically to Azure Blob Storage in a specific CSV format.
-
-2. Possible Risks:
-   - Incorrect mapping of data fields during integration
-   - Issues with the periodic transfer of data to Azure Blob Storage
-   - Data security risks during the transfer process
-   - Compatibility issues with N2F software
-   - Delays in fetching data from SFTP by N2F
-
-3. Names Involved:
-   - Jana Hlavínová
-   - Radka
-   - Jan Varšavský
+   - Barbora Vajnarová
    - Tomáš Huček
-   - Tomáš Bílek
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Alizee Dubois
+   - Ext - Jan Staněk
+   - Ext - Barbora Vajnarová
 
-##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+##Result text for item 37941:ESG Project: 
 
 1. Item Summary:
-   Title: ERP -> N2F integration flow (Financial Transactions)
-   ID: 37127
-   State: Resolved
-   Assigned to: Tomáš Huček
-   Area Path: 00-DO-PMO\Application Services\Integration
-   Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
-   Start Date: 2023-12-31T23:00:00Z
-   Changed Date: 2024-04-29T08:52:50.81Z
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 21.03.2024
+   - State changed: 08.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 25.02.2024
+   - Target date: 30.12.2024
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
 
 2. Possible Risks:
-   - Integration running periodically may cause delays or errors if not properly scheduled or monitored.
-   - Data transfer from ERP to N2F in CSV format may lead to data loss or corruption if not handled correctly.
-   - Fetching data from SFTP periodically may result in missing or outdated information if the process fails.
-   - Storing files in Azure Blob Storage may pose security risks if access controls are not properly configured.
+   - Data integration may not be completed by the expected deadline.
+   - Budget constraints may affect the implementation of the project.
+   - Business cases may not align with the project requirements.
+
+3. Names Involved:
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Alizee Dubois (ComAp)
+   - Ext - Jan Staněk
+   - Ext - Barbora Vajnarová
+
+##Result text for item 37941:ESG Project: 
+
+1. Item Summary:
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 21.03.2024
+   - State changed: 08.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 25.02.2024
+   - Target date: 30.12.2024
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
+
+2. Possible Risks:
+   - Data integration may not be completed by the expected deadline.
+   - Budget constraints may affect the implementation of the project.
+   - Business cases may not align with the project requirements.
+
+3. Names Involved:
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Barbora Vajnarová
+
+##Result text for item 39652:ESG roadmap: 
+
+1. Item Summary:
+   - ID: 39652
+   - Title: ESG roadmap
+   - State: Removed
+   - Type: Feature
+   - Assigned to: Alizee Dubois (ComAp)
+   - Changed date: 12.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO\2024\0101-2601 (R29)\1501-2601 🐭
+   - Start date: 25.02.2024
+   - Target date: 28.06.2024
+   - URL: [Link to work item](https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/39652)
+
+2. Possible Risks:
+   - The work item has been removed, which may indicate a change in project direction or scope.
+   - The comments suggest discussions about the structure of the ESG project, which could lead to delays or changes in the project plan.
+
+3. Names Involved:
+   - Alizee Dubois (ComAp)
+   - Barbora Vajnarová (Ext -)
+   - Tomáš Huček (Ext -)
+   - Vit Navratil (Ext -)
+   - Jan Staněk (Ext -)
+
+##Result text for item 39652:ESG roadmap: 
+
+1. Item Summary:
+   - ID: 39652
+   - Title: ESG roadmap
+   - State: Removed
+   - Type: Feature
+   - Assigned to: Alizee Dubois (ComAp)
+   - Changed date: 12.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO\2024\0101-2601 (R29)\1501-2601 🐭
+   - Start date: 25.02.2024
+   - Target date: 28.06.2024
+   - URL: [Link to work item](https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/39652)
+
+2. Possible Risks:
+   - The work item has been removed, which may indicate a change in project direction or scope.
+   - Inactive members have been mentioned in the comments, which could lead to delays in communication or decision-making.
+
+3. Names Involved:
+   - Alizee Dubois (ComAp)
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Vit Navratil
+   - Jan Staněk
+
+Names starting with "Ext -" were not identified in the provided information.
+
+##Result text for item 38911:ESG Risk assessment: 
+
+1. Item Summary:
+   - ID: 38911
+   - Title: ESG Risk assessment
+   - State: Active
+   - Type: Feature
+   - Assigned to: Damian Weinhold
+   - Changed date: 17.04.2024
+   - State changed: 08.02.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 13.03.2024
+   - Target date: 30.12.2024
+   - Description: None
+   - Tags: None
+   - URL: [Link to work item](https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/38911)
+
+2. Possible Risks:
+   - The work item seems to be behind schedule as mentioned in one of the comments.
+   - Lack of user-friendliness in creating a new structure for the Epic "ESG Project" could lead to delays.
+
+3. Names involved:
+   - Damian Weinhold
+   - Vit Navratil
+   - Alizee Dubois (ComAp)
+   - Tomáš Huček
+
+##Result text for item 37941:ESG Project: 
+
+1. Item Summary:
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 21.03.2024
+   - State changed: 08.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 25.02.2024
+   - Target date: 30.12.2024
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
+
+2. Possible Risks:
+   - Data integration may not be completed by the expected deadline.
+   - Budget constraints may affect the implementation of the project.
+   - Business cases may not align with the project requirements.
+
+3. Names Involved:
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Barbora Vajnarová
+
+##Result text for item 37941:ESG Project: 
+
+1. Item Summary:
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 21.03.2024
+   - State changed: 08.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 25.02.2024
+   - Target date: 30.12.2024
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
+
+2. Possible Risks:
+   - Data integration may not be completed by the expected deadline.
+   - Budget constraints may affect the implementation of the project.
+   - Dependencies on other teams or projects may cause delays.
+
+3. Names Involved:
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Alizee Dubois (ComAp)
+   - Ext - Jan Staněk
+   - Ext - Barbora Vajnarová
+
+##Result text for item 37941:ESG Project: 
+
+1. Item Summary:
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 21.03.2024
+   - State changed: 08.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 25.02.2024
+   - Target date: 30.12.2024
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
+
+2. Possible Risks:
+   - Data integration may not be completed by the expected deadline.
+   - Budget constraints may affect the implementation of data integration.
+   - Business cases may not align with the project requirements.
+
+3. Names Involved:
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Alizee Dubois (ComAp)
+   - Ext - Jan Staněk
+   - Ext - Barbora Vajnarová
+
+##Result text for item 38390:SPD:F: 00 SPDtoRnD Project Governance: 
+
+1. Item Summary:
+   - ID: 38390
+   - Title: SPD:F: 00 SPDtoRnD Project Governance
+   - State: Active
+   - Type: Feature
+   - Assigned to: Tomáš Huček
+   - Changed date: 22.04.2024
+   - State changed: 23.11.2023
+   - Area path: 00-DO-PMO\PgM\SPDtoRnD
+   - Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
+   - Start date: 31.10.2023
+   - Target date: Not specified
+   - Description: Not provided
+   - Tags: Not specified
+   - URL: [Link to work item](https://dev.azure.com/comap/f21090cb-4813-4610-afc3-d8477d80b021/_apis/wit/workItems/38390)
+   - Comments: 0
+
+2. Possible Risks:
+   - Lack of description may lead to misunderstandings or misinterpretations of the project requirements.
+   - Not having a specified target date could result in delays or lack of clear project timeline.
+   - Dependency on a single assigned person (Tomáš Huček) may pose a risk in case of unavailability or unexpected circumstances.
+
+3. Names involved (including those starting with "Ext -"):
+   - Tomáš Huček (Assigned to)
+   - No external names or stakeholders mentioned in the provided information.
+
+##Result text for item 38064:SPD:E: Handover of SPD to RnD: 
+
+1. Item Summary:
+   - ID: 38064
+   - Title: SPD:E: Handover of SPD to RnD
+   - State: Active
+   - Type: Epic
+   - Assigned to: Tomáš Huček
+   - Changed Date: 24.04.2024
+   - State Changed Date: 15.11.2023
+   - Area Path: 00-DO-PMO\PgM\SPDtoRnD
+   - Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
+   - Start Date: 31.10.2023
+   - Target Date: None
+   - Tags: #bl; #SPD_v1.0; #SPD_v2.0
+
+2. Possible Risks:
+   - Delay in rewriting the existing application to Python by the end of 2023
+   - Challenges in knowledge transfer during the handover process
+   - Integration issues with other projects, especially with WebSupervisor
+   - Potential difficulties in meeting the high-level timing goals for project delivery
 
 3. Names Involved:
    - Tomáš Huček
-   - Jana Hlavínová
-   - Radka Kroupová
+   - Ext - (if any additional names starting with "Ext -" are present in the data)
 
-(Note: Names starting with "Ext -" were not included as they are likely external entities and not directly involved in the work item)
-
-##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+##Result text for item 37941:ESG Project: 
 
 1. Item Summary:
-The work item with ID 37127 titled 'ERP -> N2F integration flow (Financial Transactions)' has been resolved and was assigned to Tomáš Huček. The integration flow involves transferring card transactions into Expense Management software (N2F) using a CSV file provided by the vendor. The integration process includes periodic data transfers to Azure Blob Storage and fetching data from SFTP by N2F. The CSV export format and mapping details are specified for the integration. Comments on the work item discuss release to PROD, integration restrictions, and transaction validations.
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 21.03.2024
+   - State changed: 08.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 25.02.2024
+   - Target date: 30.12.2024
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
 
 2. Possible Risks:
-- Delay in releasing to PROD may impact the integration timeline.
-- Integration restrictions based on transaction dates may cause data inconsistencies.
-- Incorrect card number creation and transaction validations may lead to data errors.
-- Changes in Azure Blob Storage configuration or SFTP access may disrupt the integration process.
+   - Data integration may not be completed by the expected deadline.
+   - Budget constraints may affect the implementation of the project.
+   - Business cases may not align with the project requirements.
 
 3. Names Involved:
-- Tomáš Huček
-- Jana Hlavínová
-- Radka Kroupová
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Alizee Dubois (ComAp)
+   - Ext - Jan Staněk
+   - Ext - Barbora Vajnarová
 
-##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+##Result text for item 37941:ESG Project: 
 
 1. Item Summary:
-   Title: ERP -> N2F integration flow (Financial Transactions)
-   ID: 37127
-   State: Resolved
-   Assigned to: Tomáš Huček
-   Changed Date: 2024-04-30T08:59:48.853Z
-   Area Path: 00-DO-PMO\Application Services\Integration
-   Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
-   Start Date: 2023-12-31T23:00:00Z
-   Description: This user story discusses the integration flow of financial transactions from ERP to N2F, including the process and requirements for CSV file transfer.
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 21.03.2024
+   - State changed: 08.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 25.02.2024
+   - Target date: 30.12.2024
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
 
 2. Possible Risks:
-   - Delay in integration schedule due to technical issues or dependencies.
-   - Data security risks during the transfer of financial transactions.
-   - Compatibility issues between ERP and N2F systems.
-   - Errors in CSV file format leading to incorrect data transfer.
-   - Lack of proper testing leading to integration failures.
+   - Data integration may not be completed by the expected deadline.
+   - Budget constraints may affect the implementation of data integration.
+   - Business cases may not align with the project requirements.
+
+3. Names Involved:
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Jan Staněk
+   - Ext - Barbora Vajnarová
+
+##Result text for item 37941:ESG Project: 
+
+1. Item Summary:
+   - ID: 37941
+   - Title: ESG Project
+   - State: Active
+   - Type: Epic
+   - Assigned to: Barbora Vajnarová
+   - Changed date: 21.03.2024
+   - State changed: 08.03.2024
+   - Area path: 00-DO-PMO\PgM\ESG
+   - Sprint: 00-DO-PMO
+   - Start date: 25.02.2024
+   - Target date: 30.12.2024
+   - Description: End of Q1/2024 Bára expects data integration to be implemented. Hopefully it will be covered by the maintenance budget or individual business cases.
+
+2. Possible Risks:
+   - Data integration may not be completed by the expected deadline.
+   - Budget constraints may affect the implementation of the project.
+   - Business cases may not align with the project requirements.
+
+3. Names Involved:
+   - Barbora Vajnarová
+   - Tomáš Huček
+   - Alizee Dubois (ComAp)
+   - Jan Staněk
+   - Ext - Alizee Dubois (ComAp)
+   - Ext - Jan Staněk
+   - Ext - Barbora Vajnarová
+
+##Result text for item 36747:N2F:E - Expense Management: 
+
+1. Item Summary:
+   - ID: 36747
+   - Title: N2F:E - Expense Management
+   - State: Active
+   - Type: Epic
+   - Assigned to: Tomáš Huček
+   - Changed date: 14.04.2024
+   - State changed: 23.08.2023
+   - Area path: 00-DO-PMO\PgM\Travel Expense
+   - Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
+   - Start date: 30.06.2023
+   - Target date: 14.04.2024
+   - Description: Package of configuration and training services for N2F solution
+
+2. Possible Risks:
+   - UAT Test missing
+   - Updated processes and WI missing
+   - User trainings missing
+   - Cutover execution missing
 
 3. Names Involved:
    - Tomáš Huček
-   - Jana Hlavínová
-   - Radka Kroupová
+   - Ext - Tomáš Huček
 
-(Note: Only human names are included, excluding any names starting with "Ext -")
-
-##Result text for item 37127:ERP -> N2F integration flow (Finacial Transactions): 
+##Result text for item 38064:SPD:E: Handover of SPD to RnD: 
 
 1. Item Summary:
-   Title: ERP -> N2F integration flow (Financial Transactions)
-   ID: 37127
-   State: Resolved
-   Assigned to: Tomáš Huček
-   Changed Date: 2024-04-30T08:59:48.853Z
-   Area Path: 00-DO-PMO\Application Services\Integration
-   Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
-   Start Date: 2023-12-31T23:00:00Z
-   Description: This user story discusses the integration flow of financial transactions from ERP to N2F. It involves transferring vendor transactions to Expense Management software (N2F) using CSV files and Azure Blob Storage. The integration process includes periodic data transfers and specific CSV export formats.
+   - ID: 38064
+   - Title: SPD:E: Handover of SPD to RnD
+   - State: Active
+   - Type: Epic
+   - Assigned to: Tomáš Huček
+   - Changed date: 24.04.2024
+   - State changed: 15.11.2023
+   - Area path: 00-DO-PMO\PgM\SPDtoRnD
+   - Sprint: 00-DO-PMO\2024\2204-1705 (R33)\2204-0505 🐬
+   - Start date: 31.10.2023
+   - Target date: None
+   - Tags: #bl; #SPD_v1.0; #SPD_v2.0
 
 2. Possible Risks:
-   - Delay in the integration process due to technical issues or data inconsistencies.
-   - Data security risks during the transfer of financial information.
-   - Compatibility issues between ERP and N2F systems.
-   - Errors in CSV file formatting leading to incorrect data transfer.
-   - Dependency on external vendors for transaction data availability.
+   - Delay in GUI completion by end of February 2024
+   - Delay in CO2 report completion by end of Q1
 
 3. Names Involved:
    - Tomáš Huček
-   - Jana Hlavínová
-   - Radka Kroupová
+   - Ext - None
 
-(Note: Only human names are included, excluding any names starting with "Ext -")
+##Result text for item 38540:[SD#40790-IT] SW keys - bundles of extended features: 
+
+1. Item Summary:
+   - ID: 38540
+   - Title: [SD#40790-IT] SW keys - bundles of extended features
+   - State: Resolved
+   - Type: Feature
+   - Assigned to: Martin Lachman
+   - Changed date: 20.02.2024
+   - Area path: 00-DO-PMO\Application Services\CRM
+   - Sprint: 00-DO-PMO\2024\2901-2302 (R30)\1202-2302 💣
+   - Start date: 18.12.2023
+   - Target date: None
+
+2. Possible Risks:
+   - Development of new CRM/API functionality may face technical challenges.
+   - Displaying bought features in CRM Application may require additional development effort.
+   - Testing Kentico API separately may introduce integration issues.
+
+3. Names Involved:
+   - Martin Lachman
+   - Vycpalkova Sarka (mentioned in a comment)
 

@@ -9,6 +9,8 @@ from azure.devops.connection import Connection
 from msrest.authentication import BasicAuthentication
 from pprint import pprint
 
+MAX_ITEMS_TO_LOOKFOR = 21 #if search returns too many work items, it can overload LLMs context window
+
 class DevOpsDataExtractor:
     """ object class that can connect to Azure DevOps and retrieve data about Boards work items"""
 
@@ -23,6 +25,9 @@ class DevOpsDataExtractor:
         self.work_item_title = title
         self.work_items_ids = []
         
+        sign = self._evaluate_item_type(item_types)
+        print(f"Toto je sign: {sign}")
+
         self.wiql = f"""
                     SELECT
                         [System.Id],
@@ -33,7 +38,10 @@ class DevOpsDataExtractor:
                     WHERE
                         [System.TeamProject] = '{self.project_name}'
                         AND [System.Title] CONTAINS '{self.work_item_title}'
-                        AND [System.WorkItemType] <> '{self.item_types}'"""
+                        AND [System.WorkItemType] {sign}"""
+        
+        #pprint(f"Toto je wiql query:\n{self.wiql}")
+
         self._api_init()
 
     def _api_init(self) -> None:
@@ -47,6 +55,44 @@ class DevOpsDataExtractor:
 
         return None
 
+    # Getter for work_item_title
+    @property
+    def work_item_title(self):
+        print("Entered getter")
+        return self._work_item_title
+    
+    # Setter for work_item_title
+    @work_item_title.setter
+    def work_item_title(self, title):
+        print(f"\nEntering setter for work_item_title: {title}")
+        forbidden_characters = ["\'", "\""]
+
+        if "'" in title:
+            print(f"Setting _work_item_title to None")
+            self._work_item_title = None
+            return None
+        
+        print(f"\setting _work_item_title to be {title}")
+        self._work_item_title = title
+
+
+
+    def _evaluate_item_type(self, item_types):
+        
+        item_types_options = ["Any", "Epic", "Feature"]
+        
+        if item_types in item_types_options:
+            match item_types:
+                case "Any":
+                    return "<> ''"
+                case "Feature":
+                    return "= 'Feature'"
+                case "Epic":
+                    return "= 'Epic'"
+                case _:
+                    return "<> ''"
+                
+
 
     def get_items_list(self) -> list[dict]:
         """Looks for work items whose Title in DevOps contains self.title: str and returns list of found items"""
@@ -54,11 +100,13 @@ class DevOpsDataExtractor:
         work_items_data = []
         
         wiql = {"query": self.wiql}
+        pprint(f"🔴Toto je wiql, co jde do devops:\n{wiql}")
+
         wiql_results: list[object] = self.wit_client.query_by_wiql(wiql).work_items
         logging.debug(f">>> ➡️ Got {len(wiql_results)} objects as wiql results.....")
         #pprint(wiql_results[0].as_dict())
 
-        if len(wiql_results) < 11: #pokud načítám už 10 wi, tak je můj search string špatně
+        if len(wiql_results) < MAX_ITEMS_TO_LOOKFOR: #pokud načítám už 20 wi, tak je můj search string špatně
 
             for result in wiql_results:
                 logging.debug(f">>> Processing: {result.id}")
@@ -67,23 +115,34 @@ class DevOpsDataExtractor:
             
             return work_items_data
         else:
-            return None
+            return "Too many results, try to be more specific"
         
-    def fetch_work_item_data(self, work_item_id, verbose=True) -> json:
-        """Fetches work item's data and returns dictionary of relevant atributes including all comments"""
+    def fetch_work_item_data(self, work_item_id:dict, verbose=True) -> json:
+        """Fetches work item's data and returns dictionary of relevant atributes. If verbose=True, then including all comments and some other atributes"""
+
+        print(f"This is wokr_item_id: {work_item_id}")
         
+        try: 
+            id = int(work_item_id)
+        except ValueError as e:
+            print(f"ValueError when converting id to integer. ID={work_item_id}\n{e}")
+            return [0]
+        
+        except TypeError as e:
+            print(f"TypeError when converting id to integer. ID={work_item_id}\n{e}")
+            return [0]
+
         wi_data = {}
-        #logging.debug(f">>> ➡️ Fetching data of {work_item_id} work item..")    
+        logging.debug(f">>> ➡️ Fetching data of {id} work item..")    
                        
         # Fetch single work item by ID
+        work_item = self.wit_client.get_work_item(id, expand = "All").as_dict() # načte data z DevOps do slovníku work_item
         
-        work_item = self.wit_client.get_work_item(work_item_id, expand = "All").as_dict() # načte data z DevOps do slovníku work_item
-        
-        #logging.debug(f">>> ➡️ Reading data about {work_item_id} from API.")
+        logging.debug(f">>> ➡️ Reading data about {id} from API.")
     
-        comments = self.wit_client.get_comments(self.project_name, work_item_id, top=5).as_dict()
+        comments = self.wit_client.get_comments(self.project_name, id, top=15).as_dict()
         
-        #logging.debug(f">>> ➡️ Coverted data to dict {work_item}")
+        logging.debug(f">>> ➡️ Coverted data to dict {work_item}")
                 
         # zkusit vyčítat i starší revize
         
@@ -92,6 +151,7 @@ class DevOpsDataExtractor:
                 "ID":           work_item.get("id", None),
                 "Title":        work_item.get("fields", {}).get("System.Title", None),
                 "State":        work_item.get("fields", {}).get("System.State", None),
+                "Type":         work_item.get("fields", {}).get("System.WorkItemType", None),
                 "Assigned to":  work_item.get("fields", {}).get("System.AssignedTo", {}).get("displayName", None),
                 "Chagned date": work_item.get("fields", {}).get("System.ChangedDate", None),
                 "State chagned":work_item.get("fields", {}).get("Microsoft.VSTS.Common.StateChangeDate", None),
@@ -109,11 +169,10 @@ class DevOpsDataExtractor:
                 "ID":           work_item.get("id", None),
                 "Title":        work_item.get("fields", {}).get("System.Title", None),
                 "State":        work_item.get("fields", {}).get("System.State", None),
+                "Type":         work_item.get("fields", {}).get("System.WorkItemType", None),
                 "Assigned to":  work_item.get("fields", {}).get("System.AssignedTo", {}).get("displayName", None),
                 "Chagned date": work_item.get("fields", {}).get("System.ChangedDate", None),
-                "State chagned":work_item.get("fields", {}).get("Microsoft.VSTS.Common.StateChangeDate", None),
                 "Area path":    work_item.get("fields", {}).get("System.AreaPath", None),
-                "Sprint":       work_item.get("fields", {}).get("System.IterationPath", None),
                 "Start date":   work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.StartDate", None),
                 "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
                 "Tags":         work_item.get("fields", {}).get("System.Tags", None),
@@ -122,7 +181,7 @@ class DevOpsDataExtractor:
 
         #pprint(wi_data, indent=4)
         
-        #logging.info(f">>> ➡️ Logging wi_data: {wi_data}")
+        logging.info(f">>> ➡️ Logging wi_data: {wi_data}")
         print(f">>> ➡️  Logging wi_data on work_item {wi_data["ID"]}")
         
         return wi_data

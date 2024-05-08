@@ -26,7 +26,6 @@ class DevOpsDataExtractor:
         self.work_items_ids = []
         
         sign = self._evaluate_item_type(item_types)
-        print(f"Toto je sign: {sign}")
 
         self.wiql = f"""
                     SELECT
@@ -40,7 +39,7 @@ class DevOpsDataExtractor:
                         AND [System.Title] CONTAINS '{self.work_item_title}'
                         AND [System.WorkItemType] {sign}"""
         
-        #pprint(f"Toto je wiql query:\n{self.wiql}")
+        pprint(f"Toto je wiql query:\n{self.wiql}")
 
         self._api_init()
 
@@ -65,30 +64,25 @@ class DevOpsDataExtractor:
     @work_item_title.setter
     def work_item_title(self, title):
         print(f"\nEntering setter for work_item_title: {title}")
-        forbidden_characters = ["\'", "\""]
-
-        if "'" in title:
-            print(f"Setting _work_item_title to None")
-            self._work_item_title = None
-            return None
-        
-        print(f"\setting _work_item_title to be {title}")
+        print(f"Setting _work_item_title to {title}")
         self._work_item_title = title
-
-
+        return None
+        
 
     def _evaluate_item_type(self, item_types):
         
-        item_types_options = ["Any", "Epic", "Feature"]
+        item_types_options = ["Any", "Epic", "Feature", "Story"]
         
         if item_types in item_types_options:
             match item_types:
                 case "Any":
-                    return "<> ''"
+                    return "<> 'Any'"
                 case "Feature":
                     return "= 'Feature'"
                 case "Epic":
                     return "= 'Epic'"
+                case "Story":
+                    return "= 'User Story'"
                 case _:
                     return "<> ''"
                 
@@ -100,7 +94,7 @@ class DevOpsDataExtractor:
         work_items_data = []
         
         wiql = {"query": self.wiql}
-        pprint(f"🔴Toto je wiql, co jde do devops:\n{wiql}")
+        #pprint(f"🔴Toto je wiql, co jde do devops:\n{wiql}")
 
         wiql_results: list[object] = self.wit_client.query_by_wiql(wiql).work_items
         logging.debug(f">>> ➡️ Got {len(wiql_results)} objects as wiql results.....")
@@ -117,33 +111,33 @@ class DevOpsDataExtractor:
         else:
             return "Too many results, try to be more specific"
         
-    def fetch_work_item_data(self, work_item_id:dict, verbose=True) -> json:
+    def fetch_work_item_data(self, work_item_id:str, verbose=True) -> json:
         """Fetches work item's data and returns dictionary of relevant atributes. If verbose=True, then including all comments and some other atributes"""
-
-        print(f"This is wokr_item_id: {work_item_id}")
         
-        try: 
-            id = int(work_item_id)
-        except ValueError as e:
-            print(f"ValueError when converting id to integer. ID={work_item_id}\n{e}")
-            return [0]
-        
-        except TypeError as e:
-            print(f"TypeError when converting id to integer. ID={work_item_id}\n{e}")
-            return [0]
+        if work_item_id:
 
-        wi_data = {}
-        logging.debug(f">>> ➡️ Fetching data of {id} work item..")    
+            try: 
+                id = int(work_item_id)
+            except ValueError as e:
+                print(f"ValueError when converting id to integer. ID={work_item_id}\n{e}")
+                return [0]
+            
+            except TypeError as e:
+                print(f"TypeError when converting id to integer. ID={work_item_id}\n{e}")
+                return [0]
+
+            wi_data = {}
+            logging.debug(f">>> ➡️ Fetching data of {id} work item..")    
                        
-        # Fetch single work item by ID
-        work_item = self.wit_client.get_work_item(id, expand = "All").as_dict() # načte data z DevOps do slovníku work_item
-        
-        logging.debug(f">>> ➡️ Reading data about {id} from API.")
-    
-        comments = self.wit_client.get_comments(self.project_name, id, top=15).as_dict()
-        
-        logging.debug(f">>> ➡️ Coverted data to dict {work_item}")
-                
+            # Fetch single work item by ID
+            work_item = self.wit_client.get_work_item(id, expand = "All").as_dict() # načte data z DevOps do slovníku work_item
+            
+            logging.debug(f">>> ➡️ Reading data about {id} from API.")
+            comments = self.wit_client.get_comments(self.project_name, id, top=15).as_dict()
+            logging.debug(f">>> ➡️ Coverted data to dict {work_item}")
+        else:
+            return "No ID provided, thus nothing can be returend"
+
         # zkusit vyčítat i starší revize
         
         if verbose:

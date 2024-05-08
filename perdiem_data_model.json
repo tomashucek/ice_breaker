@@ -1,0 +1,75 @@
+{
+  "Database": {
+    "Tables": [
+      {
+        "Name": "Users",
+        "Columns": {
+          "UserID": "Primary Key",
+          "Username": "String",
+          "PasswordHash": "String",
+          "Role": "String",
+          "LastLogin": "DateTime",
+          "IsActive": "Boolean"
+        }
+      },
+      {
+        "Name": "Rates",
+        "Columns": {
+          "RateID": "Primary Key",
+          "Country": "String",
+          "City": "String",
+          "RateType": "String",
+          "Amount": "Decimal",
+          "EffectiveFromDate": "Date",
+          "EffectiveToDate": "Date",
+          "LastUpdated": "DateTime"
+        }
+      },
+      {
+        "Name": "CustomRateAdjustments",
+        "Columns": {
+          "AdjustmentID": "Primary Key",
+          "RateID": "Foreign Key - Rates",
+          "CompanyID": "Foreign Key - Companies",
+          "AdjustmentType": "String",
+          "AdjustmentValue": "Decimal",
+          "EffectiveFromDate": "Date",
+          "EffectiveToDate": "Date",
+          "LastUpdated": "DateTime"
+        }
+      },
+      {
+        "Name": "Companies",
+        "Columns": {
+          "CompanyID": "Primary Key",
+          "CompanyName": "String",
+          "ContactInfo": "String",
+          "Address": "String"
+        }
+      },
+      {
+        "Name": "TravelRecords",
+        "Columns": {
+          "TravelID": "Primary Key",
+          "UserID": "Foreign Key - Users",
+          "Destination": "String",
+          "StartDate": "Date",
+          "EndDate": "Date",
+          "Purpose": "String",
+          "IsInternational": "Boolean",
+          "TotalAmount": "Decimal"
+        }
+      },
+      {
+        "Name": "TravelAdjustments",
+        "Columns": {
+          "TravelAdjustmentID": "Primary Key",
+          "TravelID": "Foreign Key - TravelRecords",
+          "AdjustmentID": "Foreign Key - CustomRateAdjustments",
+          "AppliedValue": "Decimal",
+          "DateApplied": "Date"
+        }
+      }
+    ]
+  }
+}

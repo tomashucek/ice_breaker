@@ -131,9 +131,11 @@ class DevOpsDataExtractor:
                        
             # Fetch single work item by ID
             work_item = self.wit_client.get_work_item(id, expand = "All").as_dict() # načte data z DevOps do slovníku work_item
+            #x = json.dump(work_item, fp)
+            #pprint(x)
             
             logging.debug(f">>> ➡️ Reading data about {id} from API.")
-            comments = self.wit_client.get_comments(self.project_name, id, top=15).as_dict()
+            comments = self.wit_client.get_comments(self.project_name, id, top=MAX_ITEMS_TO_LOOKFOR).as_dict()
             logging.debug(f">>> ➡️ Coverted data to dict {work_item}")
         else:
             return "No ID provided, thus nothing can be returend"
@@ -155,7 +157,8 @@ class DevOpsDataExtractor:
                 "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
                 "Description":  work_item.get("fields", {}).get("System.Description", None),
                 "Tags":         work_item.get("fields", {}).get("System.Tags", None),
-                "url":          work_item.get("url", {}),
+                #"url":          work_item.get("url", {}),
+                "url":          work_item.get("_links", {}).get("html", None),
                 "Comments":     comments
                 }
         else:
@@ -170,7 +173,8 @@ class DevOpsDataExtractor:
                 "Start date":   work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.StartDate", None),
                 "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
                 "Tags":         work_item.get("fields", {}).get("System.Tags", None),
-                "url":          work_item.get("url", {})
+                #"url":          work_item.get("url", {}),
+                "url":          work_item.get("_links", {}).get("html", None),
                 }
 
         #pprint(wi_data, indent=4)

@@ -17,8 +17,8 @@ def lookup(look_for: str) -> str:
 
     llm = ChatOpenAI(
         temperature=0,
-        model_name="gpt-3.5-turbo-0125",
-        #model_name="gpt-4"
+        #model_name="gpt-3.5-turbo-0125",
+        model_name="gpt-4o"
     )
 
     template_ai_updated = """

@@ -23,6 +23,7 @@ def ice_break_with(name: str) -> str:
     3. give all names involved including those starting with "Ext -")
     Instructions: output dates as DD.MM.YYYY
     Instructions: format output as markup text
+    Instuctions: keep it short, i.e. max half A4 page
     """
     summary_template_2 = """
     Given the information {work_item_json} about a Azure DevOps work item I want you to create:
@@ -38,7 +39,7 @@ def ice_break_with(name: str) -> str:
         devops_data_loader = devops.DevOpsDataExtractor() #inicializace devops extraktoru
         wi_data_dict = devops_data_loader.fetch_work_item_data(wi_id, verbose=True)
         summary_prompt_template = PromptTemplate(input_variables=["work_item_json"], template=summary_template) # vytvoří objekt typu PromptTemplate s jednou proměnnou
-        openai_llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo") # inicializuje LLM
+        openai_llm = ChatOpenAI(temperature=0, model_name="gpt-4o") # inicializuje LLM
         chain_new = summary_prompt_template | openai_llm
         result = chain_new.invoke({"work_item_json": wi_data_dict})
         pprint(f"toto je výsledek: \n{result.content}")

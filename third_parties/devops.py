@@ -39,7 +39,7 @@ class DevOpsDataExtractor:
                         AND [System.Title] CONTAINS '{self.work_item_title}'
                         AND [System.WorkItemType] {sign}"""
         
-        pprint(f"Toto je wiql query:\n{self.wiql}")
+        #pprint(f"Toto je wiql query:\n{self.wiql}")
 
         self._api_init()
 
@@ -57,14 +57,14 @@ class DevOpsDataExtractor:
     # Getter for work_item_title
     @property
     def work_item_title(self):
-        print("Entered getter")
+        #print("Entered getter")
         return self._work_item_title
     
     # Setter for work_item_title
     @work_item_title.setter
     def work_item_title(self, title):
-        print(f"\nEntering setter for work_item_title: {title}")
-        print(f"Setting _work_item_title to {title}")
+        #print(f"\nEntering setter for work_item_title: {title}")
+        #print(f"Setting _work_item_title to {title}")
         self._work_item_title = title
         return None
         
@@ -111,7 +111,7 @@ class DevOpsDataExtractor:
         else:
             return "Too many results, try to be more specific"
         
-    def fetch_work_item_data(self, work_item_id:str, verbose=True) -> json:
+    def fetch_work_item_data(self, work_item_id:str, verbose=True) -> dict:
         """Fetches work item's data and returns dictionary of relevant atributes. If verbose=True, then including all comments and some other atributes"""
         
         if work_item_id:
@@ -130,9 +130,7 @@ class DevOpsDataExtractor:
             logging.debug(f">>> ➡️ Fetching data of {id} work item..")    
                        
             # Fetch single work item by ID
-            work_item = self.wit_client.get_work_item(id, expand = "All").as_dict() # načte data z DevOps do slovníku work_item
-            #x = json.dump(work_item, fp)
-            #pprint(x)
+            work_item = self.wit_client.get_work_item(id, expand = "All").as_dict()
             
             logging.debug(f">>> ➡️ Reading data about {id} from API.")
             comments = self.wit_client.get_comments(self.project_name, id, top=MAX_ITEMS_TO_LOOKFOR).as_dict()
@@ -157,8 +155,7 @@ class DevOpsDataExtractor:
                 "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
                 "Description":  work_item.get("fields", {}).get("System.Description", None),
                 "Tags":         work_item.get("fields", {}).get("System.Tags", None),
-                #"url":          work_item.get("url", {}),
-                "url":          work_item.get("_links", {}).get("html", None),
+                "url":          f"{self.organization_url}/{self.project_name}/_workitems/edit/{id}",
                 "Comments":     comments
                 }
         else:
@@ -173,8 +170,7 @@ class DevOpsDataExtractor:
                 "Start date":   work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.StartDate", None),
                 "Target date":  work_item.get("fields", {}).get("Microsoft.VSTS.Scheduling.TargetDate", None),
                 "Tags":         work_item.get("fields", {}).get("System.Tags", None),
-                #"url":          work_item.get("url", {}),
-                "url":          work_item.get("_links", {}).get("html", None),
+                "url":          f"{self.organization_url}/{self.project_name}/_workitems/edit/{id}",
                 }
 
         #pprint(wi_data, indent=4)

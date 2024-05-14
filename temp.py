@@ -8,4 +8,6 @@ item = devops.DevOpsDataExtractor()
 
 x = item.fetch_work_item_data(work_item_id=36749, verbose=False)
 
+print(f"This is content: \n{x}")
+
 

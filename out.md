@@ -433,3 +433,90 @@ No external personnel (names starting with "Ext -") are mentioned in the provide
 
 **Note:** The target date and description are not provided, which may need to be addressed for better project tracking and clarity.
 
+##Result text for item 36747:N2F:E - Expense Management: 
+
+# Project Progress Report: N2F:E - Expense Management
+
+## Project Details
+- **ID:** 36747
+- **Title:** N2F:E - Expense Management
+- **State:** Active
+- **Type:** Epic
+- **Assigned to:** Tomáš Huček
+- **Area Path:** 00-DO-PMO\PgM\Travel Expense
+- **Sprint:** 00-DO-PMO\2024\1706-1207 (R35)\1706-3006 🐈
+- **Start Date:** 30.06.2023
+- **Target Date:** 14.06.2024
+- **Approved Budget:** 36,000 Euro
+
+## Project Progress
+- **Latest Comment (20.05.2024):**
+  - Go-live agreed to be 15.06.2024
+  - 1st training date: 12.06.2024
+  - 2nd training date: 18.06.2024
+
+- **Previous Comments:**
+  - **08.05.2024:** Training for users on travel expense part has happened. Identified risk with allowance module still not calculating per-diem correctly.
+  - **14.04.2024:** Almost done. Missing: UAT Test, updated processes and WI, user trainings, cutover execution.
+
+## Identified Risks
+- **Allowance Module Issue:** The allowance module is not calculating per-diem correctly, which could impact the accuracy of expense reports.
+- **Pending Tasks:** UAT Test, updated processes and work instructions, user trainings, and cutover execution are still pending.
+
+## Involved Personnel
+- **Tomáš Huček:** Assigned to the project and primary commenter.
+
+## Important Dates
+- **Go-live Date:** 15.06.2024
+- **1st Training Date:** 12.06.2024
+- **2nd Training Date:** 18.06.2024
+
+For more details, visit the [Azure DevOps Work Item](https://dev.azure.com/comap//00-DO-PMO/_workitems/edit/36747).
+
+##Result text for item 36749:Keeple - Time Off (1st wave of countries): 
+
+# Project Progress Report: Keeple - Time Off (1st wave of countries)
+
+## Project Details
+- **ID:** 36749
+- **Title:** Keeple - Time Off (1st wave of countries)
+- **State:** Active
+- **Type:** Epic
+- **Assigned to:** Ext - Conectio - Martina Mozna
+- **Start Date:** 03.04.2024
+- **Target Date:** 16.06.2024
+- **Sprint:** 00-DO-PMO\2024\1706-1207 (R35)\1706-3006 🐈
+
+## Progress Summary
+- **Latest Update (23.05.2024):**
+  - End of system testing for Singapore and EMEA by 28.05.2024.
+  - Integration set-up and testing to begin in early June.
+  - User trainings and Go-live scheduled for the second half of June.
+  - Current project scope is limited to Leave management (negative time management).
+  - Future functionality for Time tracking (positive time management) discussed but not included in this project.
+
+## Possible Risks
+- **Italy's Hesitation:** Italy is hesitant to implement Keeple due to the lack of overtime tracking functionality.
+- **Integration Delays:** Integration with HRIS and other systems might face delays if not properly coordinated.
+- **Testing Activity:** Low testing activity in Singapore and EMEA could lead to unresolved issues at Go-live.
+
+## Involved Personnel
+- **Ext - Conectio - Martina Mozna**
+- **Tomáš Huček**
+- **Jan Stanek**
+- **Piero**
+- **Maryna**
+- **Sabine (Consultant)**
+- **Lukas Nespor**
+- **Petr Honza**
+- **Tanya**
+- **Paja**
+- **Misa (HR Operations)**
+
+## Comments
+- **14.05.2024:** Risk identified regarding Italy's hesitation due to the absence of overtime tracking.
+- **07.05.2024:** Testing in progress, with integration readiness by 02.06.2024.
+- **30.04.2024:** Status meetings established, with integration work scheduled for the second half of May.
+
+For more details, visit the [work item](https://dev.azure.com/comap//00-DO-PMO/_workitems/edit/36749).
+

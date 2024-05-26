@@ -1,0 +1,1 @@
+"response_data": "ApiSyntaxError: Could not parse API call kwargs as JSON: exception=Expecting value: line 1 column 1 (char 0) url=https://dev.azure.com/comap/_apis/projects"
